@@ -14,7 +14,7 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
-// Routes — each person plugs in their own
+
 app.use("/api/tasks",       require("./routes/tasks"));
 app.use("/api/attendance",  require("./routes/attendance"));
 app.use("/api/salary",      require("./routes/salary"));
@@ -22,7 +22,7 @@ app.use("/api/inventory",   require("./routes/inventory"));
 app.use("/api/reports",     require("./routes/reports"));
 app.use("/api/escalations", require("./routes/escalations"));
 
-// Socket — P5's territory
+
 require("./socket/escalationSocket")(io);
 
 mongoose.connect(process.env.MONGO_URI)
